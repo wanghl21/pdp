@@ -30,7 +30,6 @@ genesis block, then bring up the network. e.g.:
   byfn.sh -m up -c <channelname>
 ```
 
-https://blog.csdn.net/bean_business/article/details/108747047
 
 ###### 启动网络
 
