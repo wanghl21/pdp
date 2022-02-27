@@ -2,38 +2,16 @@
 
 ###### fabric2.x运行
 
-1.1 安装预置环境
+###### 安装fabric环境
 
-```shell
-cd first-network
-```
-
-1.2运行 利用docker镜像快速引导一个由4个代表2个不同组织的peer节点以及一个排序服务节点的Hyperledger fabric网络。它还将启动一个容器来运行一个peer节点加入channel、部署实例化链码服务以及驱动已经部署的链码执行交易的脚本。
-
-```
-./byfn.sh -h
-Usage:
-  byfn.sh -m up|down|restart|generate [-c <channel name>] [-t <timeout>]
-  byfn.sh -h|--help (print this message)
-    -m <mode> - one of 'up', 'down', 'restart' or 'generate'
-      - 'up' - bring up the network with docker-compose up
-      - 'down' - bring up the network with docker-compose up
-      - 'restart' - bring up the network with docker-compose up
-      - 'generate' - generate required certificates and genesis block
-    -c <channel name> - config name to use (defaults to "mychannel")
-    -t <timeout> - CLI timeout duration in microseconds (defaults to 10000)
-
-Typically, one would first generate the required certificates and
-genesis block, then bring up the network. e.g.:
-
-  byfn.sh -m generate -c <channelname>
-  byfn.sh -m up -c <channelname>
-```
+网上很多安装教程，现普遍使用2.2
 
 
 ###### 启动网络
 
 ```shell
+cd /home/xx/go/src/github.com/hyperledger/fabric/scripts/fabric-samples
+cd test-network
 ./network.sh up
 ```
 
