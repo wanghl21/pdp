@@ -1,4 +1,4 @@
-module pdp_demo
+module pdp
 
 go 1.17
 
