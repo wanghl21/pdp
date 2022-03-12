@@ -1,4 +1,4 @@
-package main
+package offchain
 
 import (
 	"errors"
