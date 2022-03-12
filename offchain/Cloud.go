@@ -1,4 +1,4 @@
-package main
+package offchain
 
 type Cloudp struct {
 	keys PublicParam
