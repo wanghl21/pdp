@@ -42,6 +42,7 @@ func (bc *Blockchain) getChallenges(verifier Verifier, challengesObject []byte) 
 		valueElement := verifier.keys.pairing.NewZr().SetBytes(valueBytes)
 		challenges = append(challenges, Challenge{num: keyInt, random: *valueElement})
 	}
+	challenges = verifier.getChallenges(verifier, challengesObject)
 	return challenges
 
 }
@@ -92,6 +93,7 @@ func (bc *Blockchain) getProofObeject(verifier Verifier, proofobject []byte) Pro
 		R:       rob,
 		HashMul: hashMulob,
 	}
+	proofOb = verifier.getProofObeject(verifier, proofobject) 
 	return proofOb
 
 }
