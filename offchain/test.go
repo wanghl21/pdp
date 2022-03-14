@@ -20,8 +20,8 @@ func main() {
 
 	verifier := NewVerifier()
 	bc := NewBlockchain()
-	bc_chal := bc.getChallenges(verifier, challengesObject)
-	bc_proofObject := bc.getProofObeject(verifier, proofObject)
-	bc.verify(u.username, bc_proofObject, bc_chal) //这里的u.uername 就像相当于short recod
+	bc_chal := bc.GetChallenges(verifier, challengesObject)
+	bc_proofObject := bc.GetProofObeject(verifier, proofObject)
+	bc.Verify(u.username, bc_proofObject, bc_chal) //这里的u.uername 就像相当于short recod
 
 }
