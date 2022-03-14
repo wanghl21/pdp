@@ -14,7 +14,7 @@ func NewBlockchain() Blockchain {
 	return Blockchain{}
 
 }
-func (bc *Blockchain) verify(id string, proofObject ProofObject, challenges []Challenge) bool {
+func (bc *Blockchain) Verify(id string, proofObject ProofObject, challenges []Challenge) bool {
 	fmt.Print("Blockchain verifies proof......\t\t\t")
 	verifier := NewVerifier()
 	//var proof1 Proof = getProof(verifier)
@@ -26,7 +26,7 @@ func (bc *Blockchain) verify(id string, proofObject ProofObject, challenges []Ch
 	return isTrue
 }
 
-func (bc *Blockchain) getChallenges(verifier Verifier, challengesObject []byte) []Challenge {
+func (bc *Blockchain) GetChallenges(verifier Verifier, challengesObject []byte) []Challenge {
 	//chalstring := Utils{}.readFile("../config/challenges")
 	fmt.Print("Blockchain getChallenges......\t\t\t")
 	var challenges []Challenge
@@ -45,7 +45,7 @@ func (bc *Blockchain) getChallenges(verifier Verifier, challengesObject []byte) 
 	return challenges
 }
 
-func (bc *Blockchain) getProof(verifier Verifier, proofobject []byte) Proof {
+func (bc *Blockchain) GetProof(verifier Verifier, proofobject []byte) Proof {
 
 	//proofString := Utils{}.readFile("../config/proof")
 	proofObject, _ := ourjson.ParseObject(string(proofobject))
@@ -65,7 +65,7 @@ func (bc *Blockchain) getProof(verifier Verifier, proofobject []byte) Proof {
 
 }
 
-func (bc *Blockchain) getProofObeject(verifier Verifier, proofobject []byte) ProofObject {
+func (bc *Blockchain) GetProofObeject(verifier Verifier, proofobject []byte) ProofObject {
 	fmt.Print("Blockchain getProofObeject......\t\t\t")
 	//proofString := readFile("../config/proof")
 	proofObject, _ := ourjson.ParseObject(string(proofobject))
