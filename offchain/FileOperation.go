@@ -85,8 +85,9 @@ func readDate(challenges []Challenge, filePath string) [][]byte {
 
 	return data
 }
-func readTags(keys PublicParam, id string, challenges []Challenge) []*pbc.Element {
-	var jsonString string = readFile("../data/" + id + "tag")
+func readTags(keys PublicParam, id string, challenges []Challenge, dataTags string) []*pbc.Element {
+	//var jsonString string = readFile(id + "tag")
+	jsonString := dataTags
 	tagsObject, _ := ourjson.ParseObject(jsonString)
 	count := len(challenges)
 	tags := make([]*pbc.Element, count)
