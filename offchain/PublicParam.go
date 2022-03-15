@@ -14,22 +14,33 @@ type PublicParam struct {
 	w       pbc.Element
 }
 
-func NewPublicParam() PublicParam {
-	pairing, _ := pbc.NewPairingFromString(readFile("../config/a.properties")) // loads pairing parameters from a string and instantiates a pairing
-	jsonStringPub := readFile("../config/pubkey")
+func NewPublicParam(userproperties string, userpubkey string) PublicParam {
+	//pairing, _ := pbc.NewPairingFromString(readFile("a.properties")) // loads pairing parameters from a string and instantiates a pairing
+	pairing, _ := pbc.NewPairingFromString(userproperties)
+	//jsonStringPub := readFile("pubkey")
+	//jsonStringPub := userpubkey
+	upubkey := Pubkey{}
+	fmt.Println(userpubkey)
+	userpubkeyAsBytes := []byte(userpubkey)
+	json.Unmarshal(userpubkeyAsBytes, &upubkey)
+	//fmt.Println(jsonStringPub)
 
-	pubkeyObject, _ := ourjson.ParseObject(jsonStringPub)
-	gk, _ := pubkeyObject.GetString("g")
+	//pubkeyObject, _ := ourjson.ParseObject(jsonStringPub)
+	//fmt.Println(pubkeyObject)
 
+	gk := upubkey.G
 	g := pairing.NewG2().SetBytes(base64StringToElementBytes(gk))
 
-	uk, _ := pubkeyObject.GetString("u")
+	//uk, _ := pubkeyObject.GetString("u")
+	uk := upubkey.U
 	u := pairing.NewG1().SetBytes(base64StringToElementBytes(uk))
 
-	vk, _ := pubkeyObject.GetString("v")
+	vk := upubkey.V
+	//vk, _ := pubkeyObject.GetString("v")
 	v := pairing.NewG2().SetBytes(base64StringToElementBytes(vk))
 
-	wk, _ := pubkeyObject.GetString("w")
+	wk := upubkey.W
+	//wk, _ := pubkeyObject.GetString("w")
 	w := pairing.NewG1().SetBytes(base64StringToElementBytes(wk))
 
 	return PublicParam{pairing: *pairing, g: *g, u: *u, v: *v, w: *w}
