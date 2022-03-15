@@ -14,17 +14,6 @@ func NewBlockchain() Blockchain {
 	return Blockchain{}
 
 }
-func (bc *Blockchain) Verify(id string, proofObject ProofObject, challenges []Challenge) bool {
-	fmt.Print("Blockchain verifies proof......\t\t\t")
-	verifier := NewVerifier()
-	//var proof1 Proof = getProof(verifier)
-
-	//	var challenges []Challenge = getChallenges(verifier)
-	isTrue := verifier.VeriProof(challenges, proofObject, id)
-	fmt.Print("[ok].")
-	fmt.Println(isTrue)
-	return isTrue
-}
 
 func (bc *Blockchain) GetChallenges(verifier Verifier, challengesObject []byte) []Challenge {
 	//chalstring := Utils{}.readFile("../config/challenges")
